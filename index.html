@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Sidebar start -->
+  <nav class="sidebar">
+    <a href="#" class="logo">Table of Content</a>
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title">Home Page</div>
+        <li class="item"><a href="#Algo">Algorithm</a></li>
+        <li class="item" ><a href="#Sort">Sorting</a></li>
+        <li class="item" ><a href="#Big">Big O Notation</a></li>
+        <li class="item" ><a href="#Ex">Example</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main content start -->
+  <div class="main-content">
+    <!-- algorithm  -->
+    <div class="content-section" id="Algo">
+      <h2>Algorithm</h2>
+      <p>Algorithms are structured, step-by-step procedures essential for solving computational tasks effectively.</p>
+      <p>They form the backbone of computer science, enabling efficient problem-solving and solution design.</p>
+      <p>Mastery of algorithms is crucial for mastering data structures and effectively tackling complex computational challenges.</p>
+        <img src="images/Algo.jpeg">
+    </div>
+
+        <!-- Sorting  -->
+    <div class="content-section" id="Sort">
+      <h2>Sorting</h2>
+      <p>Sorting is a fundamental operation in computer science and data processing. It involves arranging data elements in a specific order, typically ascending or descending based on a certain key or attribute. Efficient sorting algorithms are crucial for optimizing search algorithms, data retrieval, and overall system performance.</p>
+
+        <ol>Common sorting algorithms include:
+        <li>Selection Sort: Iteratively selects the smallest (or largest) element from the unsorted portion and places it in its correct position.</li>
+        <li>Insertion Sort: Builds the sorted array one item at a time by inserting each new element into its correct position relative to the already sorted elements.</li>
+        <li>Bubble Sort: Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.</li>
+        <li>Merge Sort: Divides the array into two halves, recursively sorts each half, and then merges the sorted halves to produce a fully sorted array.</li>
+        <li>Quick Sort: Chooses a pivot element and partitions the array around the pivot, recursively sorting each partition.</li>
+        </ol>
+
+        <p>Each sorting algorithm has its strengths and weaknesses in terms of time complexity, space complexity, stability, and adaptability to different data distributions. Choosing the right sorting algorithm depends on the specific requirements of the application and the characteristics of the data being sorted.</p>
+          <div class="button-container">
+        <button class="sort-button" data-url="selectionsort.html">Selection Sort</button>
+        <button class="sort-button" data-url="insertionsort.html">Insertion Sort</button>
+        <button class="sort-button" data-url="bubblesort.html">Bubble Sort</button>
+        <button class="sort-button" data-url="mergesort.html">Merge Sort</button>
+        <button class="sort-button" data-url="quicksort.html">Quick Sort</button>
+      </div>
+      <!-- <p>Sorting is the process of arranging data in a specific order. Common sorting algorithms include Selection Sort, Insertion Sort, Bubble Sort, Merge Sort, and Quick Sort.</p> -->
+    </div>
+
+        <!-- Big o Notation  -->
+    <div class="content-section" id="Big">
+      <h2>Big O Notation</h2>
+      <!-- <p>Big O Notation is used to describe the performance or complexity of an algorithm. It provides an upper bound on the time or space requirements in terms of the input size.</p> -->
+      <p>Big O Notation is a mathematical notation used to describe the asymptotic behavior of an algorithm's time or space complexity as the size of the input grows. It provides an upper bound on the worst-case scenario of how the algorithm will perform. Big O Notation is crucial for analyzing the scalability and efficiency of algorithms.</p>
+
+      <ol>In Big O Notation:
+      <li>O(1) represents constant time complexity, where the algorithm takes the same amount of time regardless of input size.</li>
+      <li>O(log n) denotes logarithmic complexity, typical of algorithms that divide the problem into smaller subproblems.</li>
+      <li>O(n) signifies linear complexity, where the time or space grows linearly with the size of the input.</li>
+      <li>O(n^2) indicates quadratic complexity, common in algorithms with nested loops over the input data.</li>
+      <li>O(2^n) represents exponential complexity, where the growth doubles with each additional input element.</li>
+      </ol>
+      <p>Understanding and analyzing algorithms using Big O Notation helps in predicting how algorithms will perform with larger datasets and in optimizing algorithm selection for different problem domains.</p>
+    </div>
+
+        <!-- Example  -->
+    <div class="content-section" id="Ex">
+      <h2>Example</h2>
+      <p>Understanding practical examples of algorithms helps grasp their applications better. Here’s an example of sorting a list of numbers using a sorting algorithm.</p>
+      
+      <h3>Unsorted List</h3>
+      <p>Consider the following unsorted list of numbers:</p>
+      <pre><code class="language-python">[34, 7, 23, 32, 5, 62]</code></pre>
+      <p></p>
+      <h3>Sorted List</h3>
+      <p>After applying a sorting algorithm, the list becomes:</p>
+      <pre><code class="language-python">[5, 7, 23, 32, 34, 62]</code></pre>
+    </div>
+  </div>
+  
+</body>
+</html>

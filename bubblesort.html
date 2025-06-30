@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble Sort</title>
+  <link rel="stylesheet" href="bubblesort.css">
+  <script src="bubblesort.js" defer></script>
+</head>
+<body>
+<!-- Sidebar start -->
+  <nav class="sidebar">
+    <a href="#" class="logo">Table of Content</a>
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title">Bubble Sort Page</div>
+        <li class="item"><a href="#definition">Definition</a></li>
+        <li class="item"><a href="#algorithm">Algorithm</a></li>
+        <li class="item"><a href="#how-it-works">How It Works</a></li>
+        <li class="item"><a href="#implementation">Implementation</a></li>
+        <li class="item"><a href="#complexity">Complexity</a></li>
+        <li class="item"><a href="#example">Example</a></li>
+        <li class="item"><a href="#advantages-and-disadvantages">Advantages and Disadvantages</a></li>
+        <li class="item"><a href="#application">Application</a></li>
+        <li class="item"><a href="#sorting-visualizer">Sorting Visualizer</a></li> 
+      </ul>
+    </div>
+  </nav>
+<!-- Sidebar end -->
+
+<!-- Main content start -->
+  <div class="main-content">
+    <div id="definition" class="content-section">
+      <h2>Definition</h2>
+      <p>Bubble Sort is a simple comparison-based sorting algorithm. It repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process is repeated until the list is sorted.</p>
+    </div>
+    <div id="algorithm" class="content-section">
+      <h2>Algorithm</h2>
+      <ol>
+        <li>Start at the beginning of the array (or list).</li>
+        <li>Compare the first two elements. If the first is greater than the second, swap them.</li>
+        <li>Move to the next pair of elements, compare them and swap if necessary.</li>
+        <li>Repeat the process for each pair of adjacent elements to the end of the array (or list).</li>
+        <li>Repeat the entire process for the entire array (or list) until no swaps are needed.</li>
+      </ol>
+    </div>
+    <div id="how-it-works" class="content-section">
+      <h2>How It Works</h2>
+      <p>Bubble Sort iterates through an array (or list) and repeatedly compares adjacent elements and swaps them if they are in the wrong order. This "bubbles" the largest element to the end of the list in each iteration. This process is repeated until no more swaps are needed, indicating the list is sorted.</p>
+      <button class="sort-button">Click</button>
+    </div>
+    <div id="popup" class="popup-container" style="display: none;">
+      <div id="additional-content" class="additional-content">
+        <img src="images/bubblesort.jpeg">
+      </div>
+      <button id="close-popup" class="close-button">Close</button>
+    </div>
+
+    <div id="implementation" class="content-section">
+      <h2>Implementation</h2>
+      <pre><code>
+function bubbleSort(arr) {
+  let n = arr.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Swap the elements
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+      </code></pre>
+    </div>
+    <div id="complexity" class="content-section">
+      <h2>Complexity</h2>
+      <ul>
+        <li>Worst Case: O(n<sup>2</sup>)</li>
+        <li>Best Case: O(n) - when the array (or list) is already sorted</li>
+        <li>Average Case: O(n<sup>2</sup>)</li>
+      </ul>
+    </div>
+    <div id="example" class="content-section">
+      <h2>Example</h2>
+      <p>Given an array [5, 1, 4, 2, 8], after applying Bubble Sort, the sorted array is [1, 2, 4, 5, 8].</p>
+    </div>
+    <div id="advantages-and-disadvantages" class="content-section">
+      <h2>Advantages and Disadvantages</h2>
+      <h3>Advantages</h3>
+      <ul>
+        <li>Simple and easy to understand and implement.</li>
+        <li>Efficient for small data sets or nearly sorted data.</li>
+        <li>Stable sort (does not change the relative order of elements with equal keys).</li>
+      </ul>
+      <h3>Disadvantages</h3>
+      <ul>
+        <li>Inefficient on large lists, with a time complexity of O(n<sup>2</sup>).</li>
+        <li>Not suitable for large datasets due to its slow nature.</li>
+      </ul>
+    </div>
+    <div id="application" class="content-section">
+      <h2>Application</h2>
+      <p>Bubble Sort can be used when the size of the data set is small, or when a simple sorting algorithm is required for educational purposes.</p>
+    </div>
+    <div id="sorting-visualizer" class="content-section">
+      <h2>Sorting Visualizer</h2>
+      <p>This section demonstrates the Bubble Sort algorithm visually.</p>
+      <button onclick="openVisualizer()" id="visualize-button" class="sort-button">Visualize Bubble Sort</button>
+      <!-- You can add more content or styling as needed for your visualization -->
+    </div>
+    
+  </div>
+<!-- Main content end -->
+
+</body>
+
+</html>

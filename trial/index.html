@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <!----------sidebar start---------->
+    <nav class="sidebar">
+        <a href="#" class="logo">Sorting Visualizer</a>
+        <div class="menu-content">
+            <ul class="menu-items">
+                <div class="menu-title">Visualizer Page</div>
+                <li class="item">
+                    <a href="#">Enter the number of elements (1 to 400)-</a>
+                    <input type="number" name="arr_len" id="inp">
+                </li>
+                <li class="item">
+                    <button type="button" onclick="generateArray()">Generate Array</button>
+                </li>
+                <li class="item">
+                    <select id="speedSelect">
+                        <option value="0">Very Slow</option>
+                        <option value="1">Slow</option>
+                        <option value="2">Fast</option>
+                        <option value="3">Very Fast</option>
+                    </select>
+                </li>
+                <li class="item">
+                    <select id="mySelect">
+                        <option value="option1">Selection Sort</option>
+                        <option value="option2">Insertion Sort</option>
+                        <option value="option3">Bubble Sort</option>
+                        <option value="option4">Merge Sort</option>
+                        <option value="option5">Quick Sort</option>
+                    </select>
+                </li>
+                <li class="item">
+                    <button type="button" onclick="sort()">Sort</button>
+                </li>
+                <li class="item">
+                    <button type="button" onclick="goBack()">Back</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!----------sidebar end---------->
+
+    <!----------main start---------->        
+    <div class="main-content">
+        <div class="elementsDiv">
+            <!--  dynamically array -->
+        </div>
+    </div>
+    <!----------main end---------->
+
+</body>
+</html>

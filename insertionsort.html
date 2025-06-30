@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insertion Sort</title>
+  <link rel="stylesheet" href="insertionsort.css">
+  <script src="insertionsort.js" defer></script>
+</head>
+<body>
+<!-- Sidebar start -->
+  <nav class="sidebar">
+    <a href="#" class="logo">Table of Content</a>
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title">Insertion Sort Page</div>
+        <li class="item"><a href="#definition">Definition</a></li>
+        <li class="item"><a href="#algorithm">Algorithm</a></li>
+        <li class="item"><a href="#how-it-works">How It Works</a></li>
+        <li class="item"><a href="#implementation">Implementation</a></li>
+        <li class="item"><a href="#complexity">Complexity</a></li>
+        <li class="item"><a href="#example">Example</a></li>
+        <li class="item"><a href="#advantages-and-disadvantages">Advantages and Disadvantages</a></li>
+        <li class="item"><a href="#application">Application</a></li>
+        <li class="item"><a href="#sorting-visualizer">Sorting Visualizer</a></li> 
+      </ul>
+    </div>
+  </nav>
+<!-- Sidebar end -->
+
+<!-- Main content start -->
+  <div class="main-content">
+    <div id="definition" class="content-section">
+      <h2>Definition</h2>
+      <p>Insertion Sort is a simple comparison-based sorting algorithm. It builds the final sorted array (or l      ist) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.</p>
+    </div>
+    <div id="algorithm" class="content-section">
+      <h2>Algorithm</h2>
+      <ol>
+        <li>Start with the second element in the array (or list), assuming the first element is sorted by default.</li>
+        <li>Compare the current element with the largest sorted element to its left.</li>
+        <li>If the current element is smaller, swap it with the larger element and continue this process until the entire array (or list) is sorted.</li>
+      </ol>
+    </div>
+    <div id="how-it-works" class="content-section">
+      <h2>How It Works</h2>
+      <p>Insertion Sort iterates through an array (or list) and removes one element at a time, then inserts it into the correct position. This process is repeated until the entire array (or list) is sorted.</p>
+      <button class="sort-button">Click</button>
+    </div>
+    <div id="popup" class="popup-container" style="display: none;">
+      <div id="additional-content" class="additional-content">
+        <img src="images/insertionsort.jpeg">
+      </div>
+      <button id="close-popup" class="close-button">Close</button>
+    </div>
+
+    <div id="implementation" class="content-section">
+      <h2>Implementation</h2>
+      <pre><code>
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let current = arr[i];
+    let j = i - 1;
+    while (j >= 0 && arr[j] > current) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = current;
+  }
+  return arr;
+}
+      </code></pre>
+    </div>
+    <div id="complexity" class="content-section">
+      <h2>Complexity</h2>
+      <ul>
+        <li>Worst Case: O(n<sup>2</sup>)</li>
+        <li>Best Case: O(n) - when the array (or list) is already sorted</li>
+        <li>Average Case: O(n<sup>2</sup>)</li>
+      </ul>
+    </div>
+    <div id="example" class="content-section">
+      <h2>Example</h2>
+      <p>Given an array [12, 11, 13, 5, 6], after applying Insertion Sort, the sorted array is [5, 6, 11, 12, 13].</p>
+    </div>
+    <div id="advantages-and-disadvantages" class="content-section">
+      <h2>Advantages and Disadvantages</h2>
+      <h3>Advantages</h3>
+      <ul>
+        <li>Simple and easy to implement.</li>
+        <li>Efficient for small data sets or nearly sorted data.</li>
+        <li>Stable sort (does not change the relative order of elements with equal keys).</li>
+      </ul>
+      <h3>Disadvantages</h3>
+      <ul>
+        <li>Inefficient on large lists, with a time complexity of O(n<sup>2</sup>).</li>
+        <li>Not suitable for large datasets due to its slow nature.</li>
+      </ul>
+    </div>
+    <div id="application" class="content-section">
+      <h2>Application</h2>
+      <p>Insertion Sort can be used when the size of the data set is small, or when a live insertion is required as data is received.</p>
+    </div>
+    <div id="sorting-visualizer" class="content-section">
+      <h2>Sorting Visualizer</h2>
+      <p>This section demonstrates the Insertion Sort algorithm visually.</p>
+      <button onclick="openVisualizer()" id="visualize-button" class="sort-button">Visualize Insertion Sort</button>
+    </div>    
+  </div>
+<!-- Main content end -->
+
+</body>
+
+</html>

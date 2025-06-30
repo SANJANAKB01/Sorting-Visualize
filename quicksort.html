@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Sort</title>
+  <link rel="stylesheet" href="quicksort.css">
+  <script src="quicksort.js" defer></script>
+</head>
+<body>
+<!-- Sidebar start -->
+  <nav class="sidebar">
+    <a href="#" class="logo">Table of Content</a>
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title">Quick Sort Page</div>
+        <li class="item"><a href="#definition">Definition</a></li>
+        <li class="item"><a href="#algorithm">Algorithm</a></li>
+        <li class="item"><a href="#how-it-works">How It Works</a></li>
+        <li class="item"><a href="#implementation">Implementation</a></li>
+        <li class="item"><a href="#complexity">Complexity</a></li>
+        <li class="item"><a href="#example">Example</a></li>
+        <li class="item"><a href="#advantages-and-disadvantages">Advantages and Disadvantages</a></li>
+        <li class="item"><a href="#application">Application</a></li>
+        <li class="item"><a href="#sorting-visualizer">Sorting Visualizer</a></li> 
+      </ul>
+    </div>
+  </nav>
+<!-- Sidebar end -->
+ <!-- Main content start -->
+  <div class="main-content">
+    <div id="definition" class="content-section">
+      <h2>Definition</h2>
+      <p>Quick Sort is an efficient, comparison-based, divide-and-conquer sorting algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively.</p>
+    </div>
+    <div id="algorithm" class="content-section">
+      <h2>Algorithm</h2>
+      <ol>
+        <li>Pick an element, called a pivot, from the array.</li>
+        <li>Partition the array into two sub-arrays: elements less than the pivot and elements greater than the pivot.</li>
+        <li>Recursively apply the above steps to the sub-arrays.</li>
+      </ol>
+    </div>
+    <div id="how-it-works" class="content-section">
+      <h2>How It Works</h2>
+      <p>Quick Sort starts by selecting a pivot element and then partitions the array into two sub-arrays such that all elements in the left sub-array are less than the pivot and all elements in the right sub-array are greater than the pivot. This process is applied recursively to both sub-arrays until the whole array is sorted.</p>
+      <button class="sort-button">Click</button>
+    </div>
+    <div id="popup" class="popup-container" style="display: none;">
+      <div id="additional-content" class="additional-content">
+        <img src="images/quicksort.jpeg">
+      </div>
+      <button id="close-popup" class="close-button">Close</button>
+    </div>
+
+    <div id="implementation" class="content-section">
+      <h2>Implementation</h2>
+      <pre><code>
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let pivot = arr[arr.length - 1];
+  let left = [];
+  let right = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+      </code></pre>
+    </div>
+    <div id="complexity" class="content-section">
+      <h2>Complexity</h2>
+      <ul>
+        <li>Worst Case: O(n<sup>2</sup>) - occurs when the smallest or largest element is always chosen as the pivot.</li>
+        <li>Best Case: O(n log n) - occurs when the pivot is always the middle element.</li>
+        <li>Average Case: O(n log n) - over many random pivots.</li>
+      </ul>
+    </div>
+    <div id="example" class="content-section">
+      <h2>Example</h2>
+      <p>Given an array [10, 80, 30, 90, 40, 50, 70], after applying Quick Sort, the sorted array is [10, 30, 40, 50, 70, 80, 90].</p>
+    </div>
+    <div id="advantages-and-disadvantages" class="content-section">
+      <h2>Advantages and Disadvantages</h2>
+      <h3>Advantages</h3>
+      <ul>
+        <li>Efficient for large data sets.</li>
+        <li>In-place sort (requires only a small, constant amount of additional storage space).</li>
+        <li>Average case is very efficient, O(n log n).</li>
+      </ul>
+      <h3>Disadvantages</h3>
+      <ul>
+        <li>Worst-case time complexity is O(n<sup>2</sup>).</li>
+        <li>Not stable (does not preserve the relative order of equal elements).</li>
+      </ul>
+    </div>
+    <div id="application" class="content-section">
+      <h2>Application</h2>
+      <p>Quick Sort is used in systems where the average performance is critical, and the worst-case performance is less of a concern. It is also useful in scenarios where in-place sorting is required.</p>
+    </div>
+    <div id="sorting-visualizer" class="content-section">
+      <h2>Sorting Visualizer</h2>
+      <p>This section demonstrates the Quick Sort algorithm visually.</p>
+      <button onclick="openVisualizer()" id="visualize-button" class="sort-button">Visualize Quick Sort</button>
+      <!-- You can add more content or styling as needed for your visualization -->
+    </div>
+    
+  </div>
+  <!-- Main content end -->
+</body>
+
+</html>

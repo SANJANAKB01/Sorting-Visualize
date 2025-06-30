@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge Sort</title>
+  <link rel="stylesheet" href="mergesort.css">
+  <script src="mergesort.js" defer></script>
+</head>
+<body>
+<!-- Sidebar start -->
+  <nav class="sidebar">
+    <a href="#" class="logo">Table of Content</a>
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title">Merge Sort Page</div>
+        <li class="item"><a href="#definition">Definition</a></li>
+        <li class="item"><a href="#algorithm">Algorithm</a></li>
+        <li class="item"><a href="#how-it-works">How It Works</a></li>
+        <li class="item"><a href="#implementation">Implementation</a></li>
+        <li class="item"><a href="#complexity">Complexity</a></li>
+        <li class="item"><a href="#example">Example</a></li>
+        <li class="item"><a href="#advantages-and-disadvantages">Advantages and Disadvantages</a></li>
+        <li class="item"><a href="#application">Application</a></li>
+        <li class="item"><a href="#sorting-visualizer">Sorting Visualizer</a></li> 
+      </ul>
+    </div>
+  </nav>
+<!-- Sidebar end -->
+
+<!-- Main content start -->
+  <div class="main-content">
+    <div id="definition" class="content-section">
+      <h2>Definition</h2>
+      <p>Merge Sort is a divide and conquer algorithm that was invented by John von Neumann in 1945. It divides the unsorted list into n sublists, each containing one element (a list of one element is considered sorted), then repeatedly merges sublists to produce new sorted sublists until there is only one sublist remaining.</p>
+    </div>
+    <div id="algorithm" class="content-section">
+      <h2>Algorithm</h2>
+      <ol>
+        <li>If the list is of length 0 or 1, then it is already sorted.</li>
+        <li>Otherwise, divide the unsorted list into two sublists of about half the size.</li>
+        <li>Sort each sublist recursively by re-applying Merge Sort.</li>
+        <li>Merge the two sublists back into one sorted list.</li>
+      </ol>
+    </div>
+    <div id="how-it-works" class="content-section">
+      <h2>How It Works</h2>
+      <p>Merge Sort works by splitting the array into halves until each half contains a single element. Then, these elements are merged back together in sorted order. This process ensures that the entire array is sorted when the final merge step is completed.</p>
+      <button class="sort-button">Click</button>
+    </div>
+    <div id="popup" class="popup-container" style="display: none;">
+      <div id="additional-content" class="additional-content">
+        <img src="images/mergesort.jpeg">
+      </div>
+      <button id="close-popup" class="close-button">Close</button>
+    </div>
+
+    <div id="implementation" class="content-section">
+      <h2>Implementation</h2>
+      <pre><code>
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+  
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+  
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+  
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+      </code></pre>
+    </div>
+    <div id="complexity" class="content-section">
+      <h2>Complexity</h2>
+      <ul>
+        <li>Worst Case: O(n log n)</li>
+        <li>Best Case: O(n log n)</li>
+        <li>Average Case: O(n log n)</li>
+      </ul>
+    </div>
+    <div id="example" class="content-section">
+      <h2>Example</h2>
+      <p>Given an array [12, 11, 13, 5, 6, 7], after applying Merge Sort, the sorted array is [5, 6, 7, 11, 12, 13].</p>
+    </div>
+    <div id="advantages-and-disadvantages" class="content-section">
+      <h2>Advantages and Disadvantages</h2>
+      <h3>Advantages</h3>
+      <ul>
+        <li>Consistent O(n log n) time complexity.</li>
+        <li>Stable sort (does not change the relative order of elements with equal keys).</li>
+        <li>Efficient for large datasets.</li>
+      </ul>
+      <h3>Disadvantages</h3>
+      <ul>
+        <li>Requires additional memory for temporary arrays.</li>
+        <li>Not as efficient for small datasets compared to other algorithms like Insertion Sort.</li>
+      </ul>
+    </div>
+    <div id="application" class="content-section">
+      <h2>Application</h2>
+      <p>Merge Sort is often used in situations where stable sort is required or when dealing with large datasets. It's also a good choice for external sorting as it works well with large data sets stored on external storage devices.</p>
+    </div>
+    <div id="sorting-visualizer" class="content-section">
+      <h2>Sorting Visualizer</h2>
+      <p>This section demonstrates the Merge Sort algorithm visually.</p>
+      <button onclick="openVisualizer()" id="visualize-button" class="sort-button">Visualize Merge Sort</button>
+      <!-- You can add more content or styling as needed for your visualization -->
+    </div>
+    
+  </div>
+<!-- Main content end -->
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selection Sort</title>
+  <link rel="stylesheet" href="selectionsort.css">
+  <script src="selectionsort.js" defer></script>
+</head>
+<body>
+  <!-- Sidebar start -->
+  <nav class="sidebar">
+    <a href="#" class="logo">Table of Content</a>
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title">Selection Sort Page</div>
+        <li class="item"><a href="#definition">Definition</a></li>
+        <li class="item"><a href="#algorithm">Algorithm</a></li>
+        <li class="item"><a href="#how-it-works">How It Works</a></li>
+        <li class="item"><a href="#implementation">Implementation</a></li>
+        <li class="item"><a href="#complexity">Complexity</a></li>
+        <li class="item"><a href="#example">Example</a></li>
+        <li class="item"><a href="#advantages-and-disadvantages">Advantages and Disadvantages</a></li>
+        <li class="item"><a href="#application">Application</a></li>
+        <li class="item"><a href="#sorting-visualizer">Sorting Visualizer</a></li> 
+      </ul>
+    </div>
+  </nav>
+  <!-- Sidebar end -->
+   <!-- Main content start -->
+  <div class="main-content">
+    <div id="definition" class="content-section">
+      <h2>Definition</h2>
+      <p>Selection Sort is a simple comparison-based sorting algorithm. It divides the input list into two parts: a sorted sublist of items which is built up from left to right at the front (left) of the list, and a sublist of the remaining unsorted items that occupy the rest of the list. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list.</p>
+    </div>
+    <div id="algorithm" class="content-section">
+      <h2>Algorithm</h2>
+      <ol>
+        <li>Set the first element as minimum.</li>
+        <li>Compare the minimum with the second element. If the second element is smaller than the minimum, assign the second element as minimum.</li>
+        <li>Continue until the end of the array. If any element is smaller than the current minimum, assign the smaller element as minimum.</li>
+        <li>After completing the first pass, swap the first element with the minimum element found.</li>
+        <li>Repeat the process with the next position in the array until the entire array is sorted.</li>
+      </ol>
+    </div>
+    <div id="how-it-works" class="content-section">
+      <h2>How It Works</h2>
+      <p>Selection Sort repeatedly finds the minimum element from the unsorted part and puts it at the beginning. The algorithm maintains two subarrays in a given array:</p>
+      <ul>
+        <li>The subarray which is already sorted.</li>
+        <li>The remaining subarray which is unsorted.</li>
+      </ul>
+      <p>In each iteration of Selection Sort, the minimum element from the unsorted subarray is picked and moved to the sorted subarray.</p>
+      <button class="sort-button">Click</button>
+    </div>
+    <div id="popup" class="popup-container" style="display: none;">
+      <div id="additional-content" class="additional-content">
+        <img src="images/selectionsort.jpeg">
+      </div>
+      <button id="close-popup" class="close-button">Close</button>
+    </div>
+
+    <div id="implementation" class="content-section">
+      <h2>Implementation</h2>
+      <pre><code>
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let minIndex = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+    if (minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+  }
+  return arr;
+}
+      </code></pre>
+    </div>
+    <div id="complexity" class="content-section">
+      <h2>Complexity</h2>
+      <ul>
+        <li>Worst Case: O(n<sup>2</sup>)</li>
+        <li>Best Case: O(n<sup>2</sup>)</li>
+        <li>Average Case: O(n<sup>2</sup>)</li>
+      </ul>
+    </div>
+    <div id="example" class="content-section">
+      <h2>Example</h2>
+      <p>Given an array [64, 25, 12, 22, 11], after applying Selection Sort, the sorted array is [11, 12, 22, 25, 64].</p>
+    </div>
+    <div id="advantages-and-disadvantages" class="content-section">
+      <h2>Advantages and Disadvantages</h2>
+      <h3>Advantages</h3>
+      <ul>
+        <li>Simple and easy to understand.</li>
+        <li>Performs well on small lists.</li>
+        <li>In-place sort (requires only a constant amount of additional memory space).</li>
+      </ul>
+      <h3>Disadvantages</h3>
+      <ul>
+        <li>Not suitable for large datasets as it has a time complexity of O(n<sup>2</sup>).</li>
+        <li>Not stable (the relative order of equal sort items is not preserved).</li>
+      </ul>
+    </div>
+    <div id="application" class="content-section">
+      <h2>Application</h2>
+      <p>Selection Sort is used when the array is not large and checking all elements is not expensive. It is also used when memory space is limited as it makes the minimum possible number of swaps.</p>
+    </div>
+    <div id="sorting-visualizer" class="content-section">
+      <h2>Sorting Visualizer</h2>
+      <p>This section demonstrates the Selection Sort algorithm visually.</p>
+      <button onclick="openVisualizer()" id="visualize-button" class="sort-button">Visualize Selection Sort</button>
+      <!-- You can add more content or styling as needed for your visualization -->
+    </div>
+    
+  </div>
+  <!-- MSin content end -->
+</body>
+
+</html>
